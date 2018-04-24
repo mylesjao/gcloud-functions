@@ -1,0 +1,24 @@
+{
+  "name": "gcloud-functions",
+  "version": "1.0.0",
+  "description": "Some modules to run on google cloud function",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mylesjao/gcloud-functions.git"
+  },
+  "author": "MylesJao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mylesjao/gcloud-functions/issues"
+  },
+  "homepage": "https://github.com/mylesjao/gcloud-functions#readme",
+  "devDependencies": {
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.7.0"
+  }
+}
