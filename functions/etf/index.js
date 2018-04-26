@@ -1,8 +1,10 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 const http = require('http');
+const xml2js = require('xml2js');
 
 const keepAliveAgent = new http.Agent({ keepAlive: true });
+const xml = new xml2js.Builder();
 
 const httpClient = axios.create({
   baseURL: 'http://www.etf.com',
@@ -33,12 +35,18 @@ exports.get = (req, res) => {
     responseType: 'text',
   };
 
-  const { ticket } = req.query;
-  console.log(`[ETF] ticket: ${ticket}`);
+  const { ticket, out = 'json' } = req.query;
+  console.log(`[ETF] ticket: ${ticket} out: ${out}`);
 
   httpClient.get(`/${ticket}`, options)
     .then((result) => {
-      res.json(parse(result.data));
+      const data = parse(result.data);
+      if (out === 'xml') {
+        res.set('Content-Type', 'text/xml');
+        res.send(xml.buildObject(data));
+      } else {
+        res.json(data);
+      }
     })
     .catch((err) => {
       if (err.response) {
