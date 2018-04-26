@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/mylesjao/gcloud-functions#readme",
   "devDependencies": {
+    "@google-cloud/functions-emulator": "^1.0.0-beta.4",
     "eslint": "^4.9.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.7.0"
-  }
+  },
+  "dependencies": {}
 }

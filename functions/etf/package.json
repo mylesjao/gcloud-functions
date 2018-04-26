@@ -1,0 +1,10 @@
+{
+  "name": "etf",
+  "version": "1.0.0",
+  "description": "google cloud function to get ETF information from internet",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cheerio": "^1.0.0-rc.2"
+  }
+}
