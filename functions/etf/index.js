@@ -13,13 +13,13 @@ const httpClient = axios.create({
 
 function parse(html) {
   const $ = cheerio.load(html);
-  const overviewContext = '#form-reports-overview > div.right > div:nth-child(1) > div';
-  const efficiencyContext = '#form-reports-efficiency > div.right > div:nth-child(1) > div';
+  const overviewContext = '#fundSummaryData';
+  const efficiencyContext = '#fundPortfolioManData';
   return {
-    expanseRatio: $('label:contains("Expense Ratio")', overviewContext).siblings('span').first().text(),
-    avgDailyVolume: $('label:contains("Average Daily $ Volume")', overviewContext).siblings('span').first().text(),
-    avgSpread: $('label:contains("Average Spread")', overviewContext).siblings('span').first().text(),
-    trackingDiff: $('label:contains("Median Tracking Difference")', efficiencyContext).siblings('span').first().text(),
+    expanseRatio: $('div.expenseRatio > span', overviewContext).text(),
+    avgDailyVolume: $('div.avgDailyDollarVolValue > span', overviewContext).text(),
+    avgSpread: $('div.medianSpreadPct45Day > span', overviewContext).text(),
+    trackingDiff: $('div.medianTrackingDifference12Mo > span', efficiencyContext).text(),
   };
 }
 
