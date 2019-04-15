@@ -7,7 +7,7 @@ const keepAliveAgent = new http.Agent({ keepAlive: true });
 const xml = new xml2js.Builder();
 
 const httpClient = axios.create({
-  baseURL: 'http://www.etf.com',
+  baseURL: 'https://www.etf.com',
   timeout: 10000,
 });
 
